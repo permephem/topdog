@@ -1,13 +1,12 @@
 import { Phone } from "lucide-react";
 import { business, ctaImage } from "@/lib/business";
-import { assetPath } from "@/lib/asset-path";
 
 export default function CallToAction() {
   return (
     <section className="relative overflow-hidden py-14 sm:py-16">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url('${assetPath(ctaImage)}')` }}
+        style={{ backgroundImage: `url('${ctaImage}')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-background to-background" />
 

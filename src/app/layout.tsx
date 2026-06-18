@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import { business } from "@/lib/business";
+import { assetPath } from "@/lib/asset-path";
 import AccentPreviewSwitcher from "@/components/AccentPreviewSwitcher";
 import StickyCallBar from "@/components/StickyCallBar";
 
@@ -28,8 +29,8 @@ export const metadata: Metadata = {
     "truck repair Billings",
   ],
   icons: {
-    icon: "/favicon.png",
-    apple: "/images/logo-sm.png",
+    icon: assetPath("/favicon.png"),
+    apple: assetPath("/images/logo-sm.png"),
   },
   openGraph: {
     title: business.name,

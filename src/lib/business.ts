@@ -1,3 +1,5 @@
+import { assetPath } from "./asset-path";
+
 export const business = {
   name: "Top Dog Auto & Diesel",
   tagline: "Billings' Trusted Diesel & Auto Repair",
@@ -35,9 +37,9 @@ export const business = {
     instagram: "https://www.instagram.com/top_dog_auto_and_diesel_/",
   },
   logo: {
-    full: "/images/logo.png",
-    md: "/images/logo-md.png",
-    sm: "/images/logo-sm.png",
+    full: assetPath("/images/logo.png"),
+    md: assetPath("/images/logo-md.png"),
+    sm: assetPath("/images/logo-sm.png"),
   },
   hours: [
     { day: "Monday", hours: "9:00 AM – 6:00 PM" },
@@ -99,25 +101,25 @@ export type GalleryImage = {
 
 export const galleryPhotos: GalleryImage[] = [
   {
-    src: "/images/powerstroke.jpg",
+    src: assetPath("/images/powerstroke.jpg"),
     alt: "Power Stroke V8 turbo diesel engine bay at Top Dog Auto & Diesel",
     caption: "Power Stroke diesel service",
   },
   {
-    src: "/images/hero.png",
+    src: assetPath("/images/hero.png"),
     alt: "Mechanic working on a truck in the Top Dog Auto & Diesel shop bay",
     caption: "In the shop bay",
   },
   {
-    src: "/images/haul.png",
+    src: assetPath("/images/haul.png"),
     alt: "Ford Super Duty diesel work truck in the Montana countryside",
     caption: "Built for Montana work",
   },
 ];
 
-export const heroImage = "/images/hero.png";
-export const aboutImage = "/images/haul.png";
-export const ctaImage = "/images/powerstroke.jpg";
+export const heroImage = assetPath("/images/hero.png");
+export const aboutImage = assetPath("/images/haul.png");
+export const ctaImage = assetPath("/images/powerstroke.jpg");
 
 export const navLinks = [
   { label: "Services", href: "#services" },

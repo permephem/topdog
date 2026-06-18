@@ -12,7 +12,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { business, heroImage } from "@/lib/business";
-import { assetPath } from "@/lib/asset-path";
 
 const stats: { value: string; label: string; icon: LucideIcon }[] = [
   { value: "Diesel", label: "Engine Experts", icon: Fuel },
@@ -26,7 +25,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen items-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${assetPath(heroImage)}')` }}
+        style={{ backgroundImage: `url('${heroImage}')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
