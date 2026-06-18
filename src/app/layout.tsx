@@ -30,14 +30,14 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: assetPath("/favicon.png"),
-    apple: assetPath("/images/logo-sm.png"),
+    apple: business.logo,
   },
   openGraph: {
     title: business.name,
     description: business.tagline,
     type: "website",
     locale: "en_US",
-    images: [{ url: business.logo.md, width: 512, height: 512 }],
+    images: [{ url: business.logo, width: 1250, height: 1024 }],
   },
 };
 

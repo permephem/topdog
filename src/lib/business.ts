@@ -36,11 +36,7 @@ export const business = {
       "https://www.facebook.com/profile.php?id=61570588506807&sk=photos",
     instagram: "https://www.instagram.com/top_dog_auto_and_diesel_/",
   },
-  logo: {
-    full: assetPath("/images/logo.png"),
-    md: assetPath("/images/logo-md.png"),
-    sm: assetPath("/images/logo-sm.png"),
-  },
+  logo: assetPath("/images/logo.png"),
   hours: [
     { day: "Monday", hours: "9:00 AM – 6:00 PM" },
     { day: "Tuesday", hours: "9:00 AM – 6:00 PM" },

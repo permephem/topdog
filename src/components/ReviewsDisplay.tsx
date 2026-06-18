@@ -239,11 +239,11 @@ export default function ReviewsDisplay({ data }: ReviewsDisplayProps) {
           <div className="flex items-center justify-between gap-3 border-b border-border bg-surface-light px-4 py-3 sm:px-5">
             <div className="flex min-w-0 items-center gap-3">
               <Image
-                src={business.logo.sm}
+                src={business.logo}
                 alt={`${business.name} logo`}
-                width={40}
-                height={40}
-                className="shrink-0 rounded-lg"
+                width={1250}
+                height={1024}
+                className="h-9 w-auto shrink-0 rounded-lg"
               />
               <div className="min-w-0">
                 <h3 className="truncate font-display text-sm font-bold uppercase tracking-wide text-foreground">
