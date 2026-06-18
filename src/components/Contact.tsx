@@ -10,7 +10,7 @@ export default function Contact() {
   const todayHours = business.hours.find((h) => h.day === today);
 
   return (
-    <section id="contact" className="py-16 sm:py-20">
+    <section id="contact" className="py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
@@ -20,8 +20,8 @@ export default function Contact() {
             Visit the Shop
           </h2>
           <p className="mt-4 text-lg text-muted">
-            {business.hoursMessage} Prefer a callback? Use the form below and
-            we&apos;ll reach out during shop hours.
+            {business.hoursMessage} Can&apos;t get through on the phone? Use the
+            callback form — we get an instant alert and will call you back.
           </p>
         </div>
 

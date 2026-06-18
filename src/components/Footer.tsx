@@ -1,6 +1,6 @@
 import { Phone, MapPin } from "lucide-react";
 import Link from "next/link";
-import { business, navLinks } from "@/lib/business";
+import { business, navLinks, serviceAreas } from "@/lib/business";
 import Logo from "@/components/Logo";
 
 export default function Footer() {
@@ -100,6 +100,15 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div className="sm:col-span-2 lg:col-span-4">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Service Area
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              Proudly serving {serviceAreas.join(", ")}.
+            </p>
           </div>
         </div>
 

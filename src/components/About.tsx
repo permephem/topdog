@@ -7,8 +7,8 @@ import { business, aboutImage } from "@/lib/business";
 
 const highlights = [
   "Locally owned and operated in Billings",
+  "Completion estimates and progress updates on every job",
   "Diesel engine rebuilds and diagnostics",
-  "All makes and models welcome",
   "Honest assessments — no unnecessary upsells",
   "Work trucks, pickups, and daily drivers",
   "Serving the Billings metro and beyond",
@@ -16,7 +16,7 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="py-16 sm:py-20">
+    <section id="about" className="py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <motion.div
@@ -64,8 +64,9 @@ export default function About() {
               every vehicle like it&apos;s our own.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted">
-              From Power Stroke 6.0 rebuilds to routine oil changes, our team
-              brings the expertise and straight talk Montana drivers deserve.
+              From Power Stroke 6.0 rebuilds to routine oil changes, we keep
+              you informed — realistic finish dates, progress updates when it
+              matters, and straight talk Montana drivers deserve.
             </p>
 
             <ul className="mt-8 space-y-3">

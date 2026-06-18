@@ -10,6 +10,7 @@ import {
   Disc2,
 } from "lucide-react";
 import { services } from "@/lib/business";
+import DieselPlatforms from "@/components/DieselPlatforms";
 
 const iconMap = {
   engine: Cog,
@@ -22,7 +23,7 @@ const iconMap = {
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-16 sm:py-20">
+    <section id="services" className="relative py-10 sm:py-12">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface/30 to-background" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -34,10 +35,12 @@ export default function Services() {
             Our Services
           </h2>
           <p className="mt-4 text-lg text-muted">
-            Full-service diesel and automotive repair for Billings drivers,
-            ranchers, and fleet owners.
+            Power Stroke, Cummins, and Duramax specialists for Billings drivers,
+            ranchers, contractors, and fleet owners.
           </p>
         </div>
+
+        <DieselPlatforms />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {

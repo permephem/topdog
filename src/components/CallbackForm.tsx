@@ -8,6 +8,7 @@ import { business } from "@/lib/business";
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const timeOptions = [
+  "ASAP — truck down / urgent",
   "Anytime",
   "Morning (9 AM – 12 PM)",
   "Afternoon (12 PM – 4 PM)",
@@ -73,7 +74,8 @@ export default function CallbackForm() {
           Request Received
         </h3>
         <p className="mt-3 max-w-sm text-muted">
-          Thanks — we&apos;ll call you back soon. Need help right away? Call{" "}
+          Got it — we&apos;ll call you back as soon as we&apos;re free. Need help
+          right now? Call{" "}
           <a href={business.phoneHref} className="font-semibold text-accent">
             {business.phone}
           </a>
@@ -104,7 +106,8 @@ export default function CallbackForm() {
             Request a Callback
           </h3>
           <p className="mt-1 text-sm text-muted">
-            Leave your number and we&apos;ll call you back during shop hours.
+            Can&apos;t reach us by phone? Leave your number — we get an instant
+            alert on our end and call you back during shop hours.
             {isStaticPreview && (
               <span className="mt-1 block text-accent">
                 Preview site — please call {business.phone} to reach the shop.

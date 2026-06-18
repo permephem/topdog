@@ -2,10 +2,10 @@ import { assetPath } from "./asset-path";
 
 export const business = {
   name: "Top Dog Auto & Diesel",
-  tagline: "Billings' Trusted Diesel & Auto Repair",
+  tagline: "Billings' Honest Power Stroke & Work-Truck Diesel Shop",
   descriptionLines: [
-    "Locally owned diesel and automotive repair shop serving Billings and the surrounding Yellowstone County communities.",
-    "From routine maintenance to full engine rebuilds — we keep your trucks and vehicles running strong.",
+    "Locally owned diesel and auto repair shop in Billings, MT — Power Stroke, Cummins, and Duramax specialists for work trucks, fleets, and daily drivers.",
+    "We give you a realistic completion estimate, keep you updated on progress, and never upsell what you don't need.",
   ],
   get description() {
     return this.descriptionLines.join(" ");
@@ -28,6 +28,9 @@ export const business = {
     "https://maps.google.com/maps?q=45.7307555,-108.5876797&ll=45.757,-108.546&z=12&output=embed",
   googleMapsUrl:
     "https://www.google.com/maps/place/Top+Dog+Auto+%26+Diesel/@45.7307592,-108.5902546,17z/data=!3m1!4b1!4m6!3m5!1s0x534863c997a6eadf:0xcbaf750166f92df0!8m2!3d45.7307555!4d-108.5876797!16s%2Fg%2F11lzd0fc39?entry=ttu",
+  /** Opens Google Maps listing where customers can leave a review */
+  googleReviewUrl:
+    "https://www.google.com/maps/place/Top+Dog+Auto+%26+Diesel/@45.7307592,-108.5902546,17z/data=!3m1!4b1!4m6!3m5!1s0x534863c997a6eadf:0xcbaf750166f92df0!8m2!3d45.7307555!4d-108.5876797!16s%2Fg%2F11lzd0fc39?entry=ttu",
   googlePhotosUrl:
     "https://www.google.com/maps/place/Top+Dog+Auto+%26+Diesel/@45.7307592,-108.5902546,17z/data=!3m1!4b1!4m6!3m5!1s0x534863c997a6eadf:0xcbaf750166f92df0!8m2!3d45.7307555!4d-108.5876797!16s%2Fg%2F11lzd0fc39!5m1!1e1?entry=ttu",
   social: {
@@ -47,8 +50,65 @@ export const business = {
     { day: "Sunday", hours: "Closed" },
   ],
   hoursMessage:
-    "Our operating hours are 9 AM to 6 PM, Monday through Friday, and 10 AM to 2 PM on Saturday. We're happy to assist you during this time.",
+    "Open Monday–Friday 9 AM–6 PM and Saturday 10 AM–2 PM. Walk-ins welcome — call ahead for major diesel work or fleet scheduling.",
 } as const;
+
+export const serviceAreas = [
+  "Billings",
+  "Laurel",
+  "Lockwood",
+  "Shepherd",
+  "Huntley",
+  "Worden",
+  "Park City",
+  "Columbus",
+  "Red Lodge",
+  "Yellowstone County",
+] as const;
+
+export const dieselPlatforms = [
+  {
+    name: "Power Stroke",
+    detail:
+      "6.0, 6.4, and 6.7 — injectors, turbos, head work, oil cooler leaks, and full rebuilds.",
+  },
+  {
+    name: "Cummins",
+    detail:
+      "Ram HD diagnostics, fuel system, emissions, and hard-start or power-loss issues.",
+  },
+  {
+    name: "Duramax",
+    detail:
+      "GM diesel trucks — CP4 and injector failures, turbos, DEF, and routine service.",
+  },
+] as const;
+
+export const whyTopDog = [
+  {
+    title: "Power Stroke Specialists",
+    description: "6.0, 6.4, and 6.7 diagnostics and rebuilds done in-house.",
+  },
+  {
+    title: "Progress Updates",
+    description: "Completion estimates up front — and we tell you if the timeline changes.",
+  },
+  {
+    title: "No Unnecessary Upsells",
+    description: "We fix what's broken — and tell you when something can wait.",
+  },
+  {
+    title: "Fleet & Work Trucks",
+    description: "Priority scheduling and timeline updates when multiple rigs are down.",
+  },
+] as const;
+
+export const fleetHighlights = [
+  "Multiple trucks down? We've handled urgent fleet situations before.",
+  "Completion estimates and progress updates so you can plan around downtime.",
+  "Written estimates before major work — no surprise invoices.",
+  "Fleet and commercial billing available — ask about account options.",
+] as const;
 
 export const services = [
   {
@@ -120,6 +180,7 @@ export const ctaImage = assetPath("/images/powerstroke.jpg");
 export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
+  { label: "Fleet", href: "#fleet" },
   { label: "Good to Know", href: "#good-to-know" },
   { label: "Gallery", href: "#gallery" },
   { label: "Reviews", href: "#reviews" },

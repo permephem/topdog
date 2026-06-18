@@ -3,7 +3,7 @@ import { business, ctaImage } from "@/lib/business";
 
 export default function CallToAction() {
   return (
-    <section className="relative overflow-hidden py-14 sm:py-16">
+    <section className="relative overflow-hidden py-10 sm:py-12">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{ backgroundImage: `url('${ctaImage}')` }}

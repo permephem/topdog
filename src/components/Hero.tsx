@@ -43,7 +43,7 @@ export default function Hero() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent"
             >
               <Star className="h-4 w-4 fill-accent" />
-              Billings, Montana&apos;s Diesel Specialists
+              Billings&apos; Power Stroke &amp; Work-Truck Specialists
             </motion.div>
 
             <motion.h1

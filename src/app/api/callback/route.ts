@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { queueCallbackAlert } from "@/lib/callback-store";
+import { notifyCallbackRequest } from "@/lib/notify-callback";
+import { isShopDisplayEnabled } from "@/lib/shop-auth";
 
 type CallbackPayload = {
   name?: string;
@@ -8,21 +11,25 @@ type CallbackPayload = {
   website?: string;
 };
 
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
 function normalizePhone(phone: string) {
   const digits = phone.replace(/\D/g, "");
   if (digits.length === 11 && digits.startsWith("1")) {
     return digits.slice(1);
   }
   return digits;
+}
+
+function isNotifyConfigured() {
+  const hasEmail =
+    Boolean(process.env.RESEND_API_KEY) &&
+    Boolean(process.env.CALLBACK_TO_EMAIL);
+  const hasSms =
+    Boolean(process.env.TWILIO_ACCOUNT_SID) &&
+    Boolean(process.env.TWILIO_AUTH_TOKEN) &&
+    Boolean(process.env.TWILIO_FROM_NUMBER) &&
+    Boolean(process.env.CALLBACK_SMS_TO);
+
+  return hasEmail || hasSms;
 }
 
 export async function POST(request: Request) {
@@ -51,20 +58,26 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Please enter your phone number." }, { status: 400 });
   }
 
-  const digits = normalizePhone(phone);
-  if (digits.length !== 10) {
+  const phoneDigits = normalizePhone(phone);
+  if (phoneDigits.length !== 10) {
     return NextResponse.json(
       { error: "Please enter a valid 10-digit phone number." },
       { status: 400 },
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CALLBACK_TO_EMAIL;
-  const fromEmail =
-    process.env.RESEND_FROM_EMAIL ?? "Top Dog Website <onboarding@resend.dev>";
+  const requestData = {
+    name,
+    phone,
+    preferredTime,
+    message,
+    phoneDigits,
+  };
 
-  if (!apiKey || !toEmail) {
+  const canNotify = isNotifyConfigured();
+  const canQueue = isShopDisplayEnabled();
+
+  if (!canNotify && !canQueue) {
     return NextResponse.json(
       {
         error:
@@ -74,33 +87,23 @@ export async function POST(request: Request) {
     );
   }
 
-  const subject = `Callback request from ${name}`;
-  const html = `
-    <h2>New callback request</h2>
-    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
-    <p><strong>Best time to call:</strong> ${escapeHtml(preferredTime)}</p>
-    <p><strong>Vehicle / issue:</strong></p>
-    <p>${escapeHtml(message)}</p>
-  `;
+  let queued = false;
+  if (canQueue) {
+    try {
+      await queueCallbackAlert(requestData);
+      queued = true;
+    } catch (error) {
+      console.error("Shop alert queue error:", error);
+    }
+  }
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: fromEmail,
-      to: [toEmail],
-      subject,
-      html,
-      replyTo: toEmail,
-    }),
-  });
+  let notified = false;
+  if (canNotify) {
+    const { email, sms } = await notifyCallbackRequest(requestData);
+    notified = email || sms;
+  }
 
-  if (!response.ok) {
-    console.error("Resend error:", await response.text());
+  if (!queued && !notified) {
     return NextResponse.json(
       { error: "Unable to send your request right now. Please call the shop." },
       { status: 502 },

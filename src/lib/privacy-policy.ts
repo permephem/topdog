@@ -42,7 +42,7 @@ export const privacySections = [
   {
     title: "How your information is shared",
     body: [
-      "Your callback request is received by our shop team. To deliver form submissions to us by email, we use a third-party email delivery service (Resend). That provider processes your submission only to transmit the message to us.",
+      "Your callback request is received by our shop team. To deliver form submissions to us, we use third-party services: email delivery (Resend) and, when configured, SMS alerts to shop staff (Twilio). Those providers process your submission only to notify us so we can call you back.",
       "We may also share information if required by law, to protect our rights, or to respond to valid legal requests.",
       "We do not share your information with advertisers or data brokers.",
     ],

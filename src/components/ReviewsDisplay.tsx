@@ -216,7 +216,7 @@ export default function ReviewsDisplay({ data }: ReviewsDisplayProps) {
   const hasReviews = data.reviews.length > 0;
 
   return (
-    <section id="reviews" className="relative py-12 sm:py-14">
+    <section id="reviews" className="relative py-10 sm:py-12">
       <div className="absolute inset-0 bg-surface/50" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -227,6 +227,33 @@ export default function ReviewsDisplay({ data }: ReviewsDisplayProps) {
           <h2 className="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
             Google Reviews
           </h2>
+        </div>
+
+        <div className="mx-auto mt-6 max-w-2xl text-center">
+          <p className="text-sm text-muted">
+            {data.totalReviews > 0 ? (
+              <>
+                {data.rating?.toFixed(1)} stars from {data.totalReviews} Google
+                review{data.totalReviews === 1 ? "" : "s"} — help other Billings
+                drivers find an honest diesel shop.
+              </>
+            ) : (
+              <>
+                Had a good experience? Your review helps Billings drivers find
+                us.
+              </>
+            )}
+          </p>
+          <a
+            href={business.googleReviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-bold text-black transition-all hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/20"
+          >
+            <Star className="h-4 w-4 fill-black" />
+            Leave a Google Review
+            <ExternalLink className="h-3.5 w-3.5 opacity-70" />
+          </a>
         </div>
 
         <motion.div
@@ -278,7 +305,7 @@ export default function ReviewsDisplay({ data }: ReviewsDisplayProps) {
               Reviews from our Google Business Profile.
             </p>
             <a
-              href={business.googleMapsUrl}
+              href={business.googleReviewUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-xs font-semibold text-foreground transition-all hover:border-accent/50 hover:bg-background"
