@@ -22,7 +22,10 @@ const stats: { value: string; label: string; icon: LucideIcon }[] = [
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative flex min-h-screen items-center overflow-hidden"
+    >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${heroImage}')` }}

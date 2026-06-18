@@ -33,11 +33,7 @@ export default function CustomerInfo() {
           </p>
         </div>
 
-        <div className="mt-12">
-          <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-foreground">
-            What to Expect
-          </h3>
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
             {whatToExpect.map((item, i) => {
               const Icon = expectIcons[i];
               return (
@@ -61,14 +57,9 @@ export default function CustomerInfo() {
                 </motion.div>
               );
             })}
-          </div>
         </div>
 
-        <div className="mt-14">
-          <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-foreground">
-            Trust &amp; Policies
-          </h3>
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
             {trustDetails.map((item, i) => {
               const Icon = trustIcons[i];
               return (
@@ -92,7 +83,6 @@ export default function CustomerInfo() {
                 </motion.div>
               );
             })}
-          </div>
         </div>
       </div>
     </section>
