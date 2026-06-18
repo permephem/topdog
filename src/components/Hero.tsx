@@ -93,18 +93,11 @@ export default function Hero() {
           </div>
 
           <div className="grid w-full grid-cols-2 gap-3 sm:gap-4 lg:w-[280px] lg:grid-cols-1 xl:w-[320px]">
-            {stats.map((stat, i) => {
+            {stats.map((stat) => {
               const Icon = stat.icon;
               return (
-                <motion.div
+                <div
                   key={stat.label}
-                  initial={{ opacity: 0, x: 160 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.6 + i * 1.5,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
                   className="relative rounded-xl border border-border/40 bg-surface/35 p-4 backdrop-blur-sm sm:p-5"
                 >
                   <Icon
@@ -117,7 +110,7 @@ export default function Hero() {
                   <p className="mt-1 text-xs uppercase tracking-wider text-muted sm:text-sm">
                     {stat.label}
                   </p>
-                </motion.div>
+                </div>
               );
             })}
           </div>
