@@ -50,7 +50,7 @@ export const business = {
     { day: "Sunday", hours: "Closed" },
   ],
   hoursMessage:
-    "Open Monday–Friday 9 AM–6 PM and Saturday 10 AM–2 PM. Walk-ins welcome — call ahead for major diesel work or fleet scheduling.",
+    "Open Monday–Friday, 9 AM–6 PM, and Saturday, 10 AM–2 PM. Walk-ins welcome — call ahead for major diesel work or fleet scheduling.",
 } as const;
 
 export const serviceAreas = [

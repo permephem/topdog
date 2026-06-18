@@ -95,7 +95,7 @@ export default function CallbackForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-border bg-surface p-6 sm:p-8"
+      className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 sm:p-8"
     >
       <div className="flex items-start gap-4">
         <div className="rounded-xl bg-accent/10 p-3">
